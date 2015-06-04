@@ -872,8 +872,10 @@ static S3Status setup_curl(Request *request,
     // less than 1K per second for more than 15 seconds.
     // xxx todo - make these configurable
     // xxx todo - allow configurable max send and receive speed
-    curl_easy_setopt_safe(CURLOPT_LOW_SPEED_LIMIT, 1024);
-    curl_easy_setopt_safe(CURLOPT_LOW_SPEED_TIME, 15);
+
+    // commented due to timeout errors on large files
+    //curl_easy_setopt_safe(CURLOPT_LOW_SPEED_LIMIT, 1024);
+    //curl_easy_setopt_safe(CURLOPT_LOW_SPEED_TIME, 15);
 
     // Append standard headers
 #define append_standard_header(fieldName)                               \
